@@ -5,18 +5,6 @@ const app = express();
 
 app.use(cors());
 
-app.use("/", (req: Request, res: Response) => {
-  try {
-    return res.status(200).json("Hello World!");
-  } catch (error) {
-    return res.status(500).json({
-      message: "Internal sever error",
-      status: "failed",
-      error: error,
-    });
-  }
-});
-
 app.use("/me", async (req: Request, res: Response) => {
   try {
     const resp = await fetch("https://catfact.ninja/fact");
@@ -41,6 +29,18 @@ app.use("/me", async (req: Request, res: Response) => {
       status: "failed",
       error: await resp.json(),
     });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Internal sever error",
+      status: "failed",
+      error: error,
+    });
+  }
+});
+
+app.use("/", (req: Request, res: Response) => {
+  try {
+    return res.status(200).json("Hello World!");
   } catch (error) {
     return res.status(500).json({
       message: "Internal sever error",
