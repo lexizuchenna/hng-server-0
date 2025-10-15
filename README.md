@@ -117,6 +117,7 @@ Response Example:
 | -------------- | --------------------------------------------- |
 | express        | Web framework for Node.js                     |
 | cors           | Middleware to enable CORS                     |
+| dotenv         | Inject .env file                              |
 | typescript     | Type-safe JavaScript development              |
 | ts-node        | Run TypeScript directly in Node               |
 | nodemon        | Automatically restarts server on code changes |
